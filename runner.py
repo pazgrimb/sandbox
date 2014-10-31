@@ -1,5 +1,5 @@
-__author__ = 'Paz'
 import excel
 
 x = excel.Excel()
-x.ciqid()
+
+x.create_linkage_table()

@@ -1,5 +1,6 @@
 __author__ = 'Paz'
 import math
+import mysql.connector
 
 
 class UnitConverter:
@@ -29,3 +30,24 @@ class UnitConverter:
         except ValueError:
             return 'NULL'
         return number
+
+class NumpyMySQLConverter(mysql.connector.conversion.MySQLConverter):
+    """ A mysql.connector Converter that handles Numpy types """
+
+    def _float32_to_mysql(self, value):
+        return float(value)
+
+    def _float64_to_mysql(self, value):
+        return float(value)
+
+    def _int32_to_mysql(self, value):
+        return int(value)
+
+    def _int64_to_mysql(self, value):
+        return int(value)
+
+config = {
+    'user'    : 'root',
+    'host'    : 'localhost',
+    'database': 'wrhdb'
+}
